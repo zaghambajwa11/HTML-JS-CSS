@@ -1,13 +1,19 @@
- // Purpose: To display the current date and time
- 
+const displayNormal = () =>
+    (document.getElementById("div1").style.color = "yellow");
+  
 
- const displayDate =() => {
+  const displayDate = () =>
+    (document.getElementById("div1").style.color = "green");
 
-   return document.getElementById("div1").style.color = "white";
+function doSomethingAsync(callback) {
+  setTimeout(function() {
+    console.log("Task is done!");
+    callback(); // This is the callback function being called
+  }, 1000);
  }
 
- function displayNormal() {
-    //convert time to local time
+function afterTaskIsDone() {
+  console.log("Callback function executed!");
+ }
 
-    document.getElementById("div1").style.color = "white";
-  }
+doSomethingAsync(afterTaskIsDone); // Pass the function as an argument
